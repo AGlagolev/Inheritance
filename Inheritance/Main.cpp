@@ -298,9 +298,8 @@ void main()
 	setlocale(LC_ALL, "Russian");
 	std::system("color 20");
 	Font(25);
-	SetConsoleCP(1251);        // Для вывода кирилицы из массива + шрифт Lucida console, Console 
-	SetConsoleOutputCP(1251);
-
+	//SetConsoleCP(1251);        // Для вывода кирилицы из массива + шрифт Lucida console, Console 
+	//SetConsoleOutputCP(1251);
 
 
 #ifdef Inheritance_Academy
@@ -308,8 +307,10 @@ void main()
 	Human H("Тупенко", "Василий", 21);
 	H.print();
 	Student stud("Pinkman", "Jassy", 20, "Bloger","Pisar",200, 90);
+	W_line();
 	stud.print();
 	Teacher tech("Петров","Иван",42,"Музыка",50,70);
+	W_line();
 	tech.print();
 
 #endif // Inheritance_Academy
