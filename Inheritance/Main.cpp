@@ -154,6 +154,14 @@ public:
 	}
 
 ////////////////////////////////////////  Constructors  //////////////////////////////////////
+	Human()
+	{
+		this->first_name = "";
+		this->last_name = "";
+		this->age = 0;
+		std::cout << "HDefaultConstructor " << this << std::endl;
+	}
+	
 	Human(const std::string& last_name, const std::string first_name,const unsigned int age)
 	{
 		this->first_name = first_name;
@@ -290,6 +298,10 @@ public:
 };
 /*************************************************************************************************/
 
+std::ostream& operator<<(std::ostream& ost, Human hum);
+void operator>>(std::istream& is, Human hum);
+
+
 #define Inheritance_Academy
 
 
@@ -303,16 +315,32 @@ void main()
 
 
 #ifdef Inheritance_Academy
-	//system("pause");
+	
 	Human H("Тупенко", "Василий", 21);
-	H.print();
-	Student stud("Pinkman", "Jassy", 20, "Bloger","Pisar",200, 90);
+	Human H1;
+	//H.print();
 	W_line();
-	stud.print();
-	Teacher tech("Петров","Иван",42,"Музыка",50,70);
+	std::cout << H;
 	W_line();
-	tech.print();
+	std::cout << H1;
+	//Student stud("Pinkman", "Jassy", 20, "Bloger","Pisar",200, 90);
+	//W_line();
+	//stud.print();
+	//Teacher tech("Петров","Иван",42,"Музыка",50,70);
+	//W_line();
+	//tech.print();
 
 #endif // Inheritance_Academy
 
+}
+
+std::ostream& operator<<(std::ostream& ost, Human hum)
+{
+	ost << "\n" << hum.get_first_name() << " " << hum.get_last_name() << " " << hum.get_age() << " лет " << std::endl;
+	return ost;
+}
+
+void operator>>(std::istream& is, Human hum)
+{
+	
 }
