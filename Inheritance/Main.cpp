@@ -299,7 +299,7 @@ public:
 /*************************************************************************************************/
 
 std::ostream& operator<<(std::ostream& ost, Human hum);
-void operator>>(std::istream& is, Human hum);
+void operator>>(std::istream& is, Human& hum);
 
 
 #define Inheritance_Academy
@@ -316,11 +316,12 @@ void main()
 
 #ifdef Inheritance_Academy
 	
-	Human H("Тупенко", "Василий", 21);
+//	Human H("Тупенко", "Василий", 21);
 	Human H1;
 	//H.print();
+	std::cin >> H1;
 	W_line();
-	std::cout << H;
+	//std::cout << H;
 	W_line();
 	std::cout << H1;
 	//Student stud("Pinkman", "Jassy", 20, "Bloger","Pisar",200, 90);
@@ -340,7 +341,13 @@ std::ostream& operator<<(std::ostream& ost, Human hum)
 	return ost;
 }
 
-void operator>>(std::istream& is, Human hum)
+void operator>>(std::istream& is, Human& hum)
 {
+	std::string a,b;
+	unsigned int c;
+	is >> a >> b >> c;
 	
+	hum.set_last_name(a);
+	hum.set_first_name(b);
+	hum.set_age(c);
 }
